@@ -1,11 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
+    <head>
+        <title>Search for books</title>
+            <script>
+            function myFunction() {
+              var input, filter, ul, li, a, i;
+              input = document.getElementById("mySearch");
+              filter = input.value.toUpperCase();
+              ul = document.getElementById("books");
+              li = ul.getElementsByTagName("li");
+            
+              for (i = 0; i < li.length; i++) {
+                a = li[i].getElementsByTagName("a")[0];
+                if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                  li[i].style.display = "";
+                } else {
+                  li[i].style.display = "none";
+                }
+              }
+            }
+            </script>
+            <div>
+                <p id="userName"></p>
+                <script>
+                    var userName = localStorage.getItem("Siuozl_ProfileNAME");
+                        document.getElementById("userName").innerText = (userName);
+                </script>
+                <style>
+                    #userName {
+                        float: right;
+                        font-family: fantasy;
+                        font-size: x-small;
+                    }
+                </style>
+            </div>
+            <style>
+                html {
+                    height: 1000%;
+                }
+        
+                #head {
+                    font-family:cursive;
+                    font-size:34px;
+                }
+        
+                #main {
+                    background-image: linear-gradient(to bottom right, rgb(0, 255, 255), rgb(0, 255, 85), rgb(208, 0, 255), rgb(0, 42, 255), rgb(0, 42, 255), rgb(0, 42, 255), rgb(0, 42, 255), rgb(0, 48, 255), rgb(0, 42, 255), rgb(0, 42, 255));
+                }
+        
+                body #home {
+                    background-color: yellowgreen;
+                    font-size:15px;
+                }
+        
+                body #search {
+                    background-color: yellowgreen;
+                    font-size:15px;
+                }
+        
+                body #home:hover {
+                    font-size:20px;
+                }
+        
+                body #search:hover {
+                    font-size:20px;
+                }
+        
+                hoverResult {
+                    background-color: white;
+                }
+         
+                input {
+                    color: black;
+                    width: fit-content;
+                    height: 34px;
+                    font-size: 34px;
+                }
+        
+                #searchButton {
+                    background-image: url("searchButton.png");
+                    width: 10px;
+                    height: 10px;
+                    text-align: center;
+                }
+        
+                #myInput {
+                    width: fit-content;
+                    font-size: 16px;
+                    border: 1px solid #ddd;
+                    margin-bottom: 12px;
+                }
+        
+                a{
+                    border: 1px solid rgba(0, 0, 0, 0);
+                    margin-top: -1px; /* Prevent double borders */
+                    background-color: #ff000000;
+                    padding: 12px;
+                    text-decoration: none;
+                    font-size: 18px;
+                    color: black;
+                    display: block;
+                    width: fit-content;
+                }
+        
+                li {
+                    list-style-type: none;
+                }
+        
+                li a:hover {
+                    color: black;
+                    background-color: rgba(0, 0, 0, 0.200);
+                }
+                </style>
+    </head>
+    <body id="main">
+        <input type="text" id="mySearch" onkeyup="myFunction()" placeholder="Search for books..." title="Search">
+
+        <ul id="books">
+        <li><a href="/books/Sinus Fungus.html/">Sinus Fungus</a></li>
+        </ul>
+        <ul id="books">
+            <li><a href="allinonenightPeek.pdf">Peek at All In One Night</a><details><summary>Updates</summary><p>Updated frequently, last updated Apr.2, 2023</p></details></li></ul>
+    </body>
 </html>
